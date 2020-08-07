@@ -12,6 +12,7 @@ The game has been prepared with a Turkish interface. Again, all questions consis
 Python 3 and OpenCV were used in the project. [Kivy Framework](https://kivy.org/#home) was used for the game interface. [face-recognition](https://github.com/ageitgey/face_recognition) module was used for face recognition. Thank you to the creators of this module:)
 
 Gameplay video of the game: https://youtu.be/-z0_uwn4-Mo
+
 Release for Windows 64 bit: https://github.com/SahinEgilmez/AR-Word-Game/releases
 
 ## Game Mechanics:
