@@ -3,7 +3,7 @@
 [CODE_OF_CONDUCT.md]: CODE_OF_CONDUCT.md
 
 
-# AR-Word-Game
+# AR Word Game
 
  Augmented Reality based word game.
  
