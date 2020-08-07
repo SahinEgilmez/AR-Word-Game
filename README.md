@@ -1,3 +1,8 @@
+[license]: http://www.apache.org/licenses/LICENSE-2.0 "Apache License 2.0"
+[CONTRIBUTING.md]: .github/CONTRIBUTING.md
+[CODE_OF_CONDUCT.md]: CODE_OF_CONDUCT.md
+
+
 # AR-Word-Game
 
  Augmented Reality based word game.
