@@ -1,0 +1,183 @@
+#:kivy 1.10.0
+#:import Window kivy.core.window.Window
+#:import FadeTransition kivy.uix.screenmanager.FadeTransition
+#:import hex kivy.utils.get_color_from_hex
+
+<MenuScreen>:
+    name: 'menuscreen'
+    canvas:
+        Color:
+            rgba: 255,255,255,1
+        Rectangle:
+            pos: 0, 0
+            size: root.width, root.height
+    RelativeLayout:
+        Image:
+            x: root.width*0.25
+            y: root.height*0.60
+            size_hint: 0.5, 0.5
+            source:"./assets/logo.png"
+
+        Label:
+            halign: 'center'
+            center_y: root.height*0.52
+            text:"OYUNCU SAYISI"
+            markup:True
+            color: [0.5,0,0,1]
+
+        BoxLayout:
+            id:box1
+            x:root.width*0.200
+            y: root.height*0.55
+            size_hint: 0.60, 0.1
+            orientation:"horizontal"
+            spacing:root.width*0.075
+            Button:
+                name:"btn_a_1"
+                text: str(b'\x33 \x4b\xc4\xb0\xc5\x9e\xc4\xb0'.decode())
+                background_color: [1,0,0,1]
+                line_width: 5
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes1(self,3,box1)                                    
+                
+            Button:
+                name:"btn_a_2"
+                text: str(b'\x34 \x4b\xc4\xb0\xc5\x9e\xc4\xb0'.decode())
+                background_color: [1,0,0,1]
+                line_width: 0.1
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes1(self,4,box1)
+                
+            Button:
+                name:"btn_a_3"
+                text: str(b'\x35 \x4b\xc4\xb0\xc5\x9e\xc4\xb0'.decode())
+                background_color: [1,0,0,1]
+                line_width: 0.1
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes1(self,5,box1)
+
+        Label:
+            halign: 'center'
+            center_y: root.height*0.32
+            markup: True
+            text: str(b'\x4f\x59\x55\x4e \x53\xc3\x9c\x52\x45\x53\xc4\xb0'.decode())
+            color: 0,0.5,0,1
+            
+        BoxLayout:
+            id:box2
+            x:root.width*0.200
+            y:root.height*0.35
+            size_hint: 0.60, 0.1
+            orientation:"horizontal"
+            spacing:root.width*0.075
+            Button:
+                name:"btn_b_1"
+                text: str(b'\x31\x20\x44\x41\x4b\xc4\xb0\x4b\x41'.decode())
+                background_color: [0,1,0,1]
+                line_width: 5
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes2(self,1,box2) 
+            Button:
+                name:"btn_b_2"
+                text: str(b'\x33\x20\x44\x41\x4b\xc4\xb0\x4b\x41'.decode())
+                background_color: [0,1,0,1]
+                line_width: 0.1
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes2(self,3,box2) 
+            Button:
+                name:"btn_b_3"
+                text: str(b'\x35\x20\x44\x41\x4b\xc4\xb0\x4b\x41'.decode())
+                background_color: [0,1,0,1]
+                line_width: 0.1
+                canvas.after:
+                    Color:
+                        rgba: .5, .5, .5, .5
+                    Line:
+                        width: self.line_width
+                        rectangle: self.x+5, self.y+5, self.width-10, self.height-10
+                on_press: root.pressBoxes2(self,5,box2)
+
+        Button:
+            x:root.width*0.425
+            y:root.height*0.15
+            size_hint: 0.15, 0.1
+            text: "OYNA"
+            on_press: root.pressPlay()
+            background_color: [0,0,1,1]
+        
+<GameScreen>:
+    canvas:
+        Rectangle:
+            group:'rect'
+            pos: 0, 0
+            size: root.width, root.height
+
+<ResultScreen>:
+    name: 'resultscreen'
+    score_label: score_label
+    canvas.before:
+        Color:
+            rgba: 255,255,255,1
+        Rectangle:
+            pos: 0, 0
+            size: root.width, root.height
+    RelativeLayout:
+        id:rel_layout
+        Image:
+            x: root.width*0.25
+            y: root.height*0.60
+            size_hint: 0.5, 0.5
+            source:"./assets/tebrik.png"
+
+        Label:
+            id:score_label
+            halign: 'center'
+            valign: 'center'
+            font_size: 50
+            bold:True
+            text:"BOS"
+            color: [1,0.25,0,1]
+
+        Button:
+            x:root.width*0.25
+            y:root.height*0.25
+            size_hint: 0.15, 0.1
+            text: "MENUYE DON"
+            font_size: 25
+            on_press: root.back_to_menu()
+            background_color: [1,0,1,1]
+
+        Button:
+            x:root.width*0.60
+            y:root.height*0.25
+            size_hint: 0.15, 0.1
+            text: "OYUNU KAPAT"
+            font_size: 25
+            on_press: root.exit_game()
+            background_color: [1,0,1,1]
+            
